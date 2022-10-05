@@ -34,7 +34,7 @@ class TransactionViewModel @Inject constructor(
 
 
     @set:Inject
-     var sharedPref: SharedPreferencesHelper? = null
+    var sharedPref: SharedPreferencesHelper? = null
 
 
 
@@ -84,26 +84,26 @@ class TransactionViewModel @Inject constructor(
             var atmAmount:Int = atmBalData?.totalAtmAmount.safeToInt();
             val widthdrawAmount = withdrawAmount.safeToInt()
             var tempWithdrawAmount = widthdrawAmount
-            if(tempWithdrawAmount/2000 !=0){
-                tRs2000Count =tempWithdrawAmount/2000
+            tRs2000Count =tempWithdrawAmount/2000
+            if(tempWithdrawAmount/2000 !=0 && tRs2000Count <=rs2000Count ){
                 tempWithdrawAmount -= 2000 * tRs2000Count
                 atmAmount -= 2000 * tRs2000Count
                 rs2000Count -= tRs2000Count
             }
-            if(tempWithdrawAmount/500 !=0){
-                tRs500Count =tempWithdrawAmount/500
+            tRs500Count =tempWithdrawAmount/500
+            if(tempWithdrawAmount/500 !=0 && tRs500Count <=rs500Count ){
                 tempWithdrawAmount -= 500 * tRs500Count
                 atmAmount -= 500* tRs500Count
                 rs500Count -= tRs500Count
             }
-            if(tempWithdrawAmount/200 !=0){
-                tRs200Count = tempWithdrawAmount/200
+            tRs200Count = tempWithdrawAmount/200
+            if(tempWithdrawAmount/200 !=0 &&  tRs200Count <=rs200Count ){
                 tempWithdrawAmount -= 200 * tRs200Count
                 atmAmount -= 200 * tRs200Count
                 rs200Count -= tRs200Count
             }
-            if(tempWithdrawAmount/100 !=0){
-                tRs100Count = tempWithdrawAmount/100
+            tRs100Count = tempWithdrawAmount/100
+            if(tempWithdrawAmount/100 !=0 && tRs100Count <=rs100Count ){
                 tempWithdrawAmount -= 100 * tRs100Count
                 atmAmount -= 100 * tRs100Count
                 rs100Count -= tRs100Count
