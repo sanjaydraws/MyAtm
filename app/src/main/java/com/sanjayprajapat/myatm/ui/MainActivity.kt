@@ -44,7 +44,6 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initArguments() {
-//        mViewModel.withdrawFromAtm()
         atmBalance = sharedPref?.getFixedAtmAmountWithNotes()?.totalAtmAmount.safeToInt()
     }
 
@@ -59,70 +58,10 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupListener() {
-        binding?.txtLastTransactions?.setOnClickListener {
-            mViewModel.clearTables()
-        }
         binding?.btnWithdraw?.setOnClickListener {
             if(validate()){
                 mViewModel.withdrawFromAtm(binding?.etWithdrawAmount?.text.toString().safeToInt())
-                // after withdrawl
-//                var atmBalData = sharedPref?.getFixedAtmAmountWithNotes()
-//                var rs200Count = atmBalData?.rs200Count.safeToInt()
-//                var rs100Count = atmBalData?.rs100Count.safeToInt()
-//                var rs2000Count = atmBalData?.rs2000Count.safeToInt()
-//                var rs500Count = atmBalData?.rs500Count.safeToInt()
-//                var tRs2000Count:Int = 0
-//                var tRs100Count:Int=0
-//                var tRs200Count:Int=0
-//                var tRs500Count:Int=0
-//
-//                var atmAmount:Int = atmBalData?.totalAtmAmount.safeToInt();
-//                val widthdrawAmount = binding?.etWithdrawAmount?.text.toString().safeToInt()
-//                var tempWithdrawAmount = widthdrawAmount
-//                if(tempWithdrawAmount/2000 !=0){
-//                    tRs2000Count =tempWithdrawAmount/2000
-//                    tempWithdrawAmount -= 2000 * tRs2000Count
-//                    atmAmount -= 2000 * tRs2000Count
-//                    rs2000Count -= tRs2000Count
-//                    Log.d(TAG, "btnWithdraw: tempWithdrawAmount")
-//                }
-//                if(tempWithdrawAmount/500 !=0){
-//                     tRs500Count =tempWithdrawAmount/500
-//                    tempWithdrawAmount -= 500 * tRs500Count
-//                    atmAmount -= 500* tRs500Count
-//                    rs500Count -= tRs500Count
-//                    println(tempWithdrawAmount)
-//                    Log.d(TAG, "btnWithdraw: tempWithdrawAmount")
-//                }
-//                if(tempWithdrawAmount/200 !=0){
-//                     tRs200Count = tempWithdrawAmount/200
-//                    tempWithdrawAmount -= 200 * tRs200Count
-//                    atmAmount -= 200 * tRs200Count
-//                    rs200Count -= tRs200Count
-//                    println(tempWithdrawAmount)
-//                    Log.d(TAG, "btnWithdraw: tempWithdrawAmount")
-//                }
-//                if(tempWithdrawAmount/100 !=0){
-//                    tRs100Count = tempWithdrawAmount/100
-//                    tempWithdrawAmount -= 100 * tRs100Count
-//                    atmAmount -= 100 * tRs100Count
-//                    rs100Count -= tRs100Count
-//                    println(tempWithdrawAmount)
-//                    Log.d(TAG, "btnWithdraw: tempWithdrawAmount")
-//                }
-//                println("tempWithdrawAmount $tempWithdrawAmount")
-//                println("widthdrawAmount $widthdrawAmount")
-//                println("atmAmount $atmAmount")
-//
-//                sharedPref?.setFixedAtmAmountWithNotes(TransactionData(transactionId = 1,
-//                    totalAtmAmount = atmAmount,rs100Count =rs100Count,rs200Count = rs200Count,rs500Count = rs500Count,rs2000Count=rs2000Count,
-//                ))
-//                Log.d(TAG, "AFTERWITHDRAW : ${sharedPref?.getFixedAtmAmountWithNotes()}")
-////                mViewModel.insertTransactionData(TransactionData(totalAtmAmount = binding?.etWithdrawAmount?.text.safeToInt(),
-////                rs100Count = 1, rs200Count = 2, rs500Count = 3, rs2000Count = 23))
-//                mViewModel.insertTransactionData(TransactionData(transactionAtmAmount = binding?.etWithdrawAmount?.text.safeToInt(),
-//                    rs100Count =tRs100Count,rs200Count = tRs200Count,rs500Count = tRs500Count,rs2000Count=tRs2000Count))
-                updateAtmDetails()
+                updateAtmDetails() // update atm details
             }
         }
     }
