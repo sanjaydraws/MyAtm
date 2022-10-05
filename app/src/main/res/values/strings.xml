@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MyAtm</string>
+    <string name="atm_ammount">ATM Ammount</string>
+    <string name="rs_2000">Rs.2000</string>
+    <string name="rs_5000">Rs.500</string>
+    <string name="rs_200">Rs.200</string>
+    <string name="rs_100">Rs.100</string>
+    <string name="enter_your_withdraw_amount">Enter Your Withdraw Amount</string>
+    <string name="last_transactions">Last Transactions</string>
+    <string name="please_enter_withdraw_amount">Please Enter Withdraw Amount</string>
+    <string name="please_enter_valid_amount">Please Enter valid Amount</string>
+    <string name="insufficient_balance">Insufficient Balance</string>
+
+</resources>
